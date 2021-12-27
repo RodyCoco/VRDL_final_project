@@ -1,19 +1,13 @@
 _base_ = [
-	'/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/models/faster_rcnn_r50_fpn.py',
-	'/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/datasets/coco_detection.py',
-	'/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/schedules/schedule_1x.py',
-	'/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/default_runtime.py'
+    '/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/models/faster_rcnn_r50_fpn.py',
+    '/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/datasets/coco_detection.py',
+    '/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/schedules/schedule_1x.py',
+    '/home/trainer/JennyHo/Visual_final/mmdetection/configs/_base_/default_runtime.py'
 ]
-
-# --> lr = 0.02
-
-
 
 # dataset settings
 dataset_type = 'CocoDataset'
-classes = ('ALB', 'BET', 'DOL', 'LAG', 'SHARK', 'YFT', 'NoF', 'OTHER')
-
-
+classes = ('Fish', )
 
 model = dict(
     backbone=dict(
@@ -29,11 +23,10 @@ model = dict(
         init_cfg=dict(
             type='Pretrained', checkpoint='open-mmlab://resnext101_32x4d')),
 
-	roi_head=dict(
-		bbox_head=dict(num_classes=8),
-		),
+    roi_head=dict(
+        bbox_head=dict(num_classes=1),
+        ),
     )
-
 
 data = dict(
     train=dict(
@@ -47,10 +40,8 @@ data = dict(
     test=dict(
         ann_file='/home/trainer/JennyHo/Visual_final/mmdetection/coco/annotations/test.json',
         classes=classes,
-        img_prefix='/home/trainer/JennyHo/Visual_final/mmdetection/test/'))
+        img_prefix='/home/trainer/JennyHo/Visual_final/mmdetection/coco/images/test/'))
 
-# schedule settings
-optimizer = dict(type='SGD', lr=0.001, momentum=0.9, weight_decay=0.0001)
 runner = dict(type='EpochBasedRunner', max_epochs=50)
 
 load_from = '/home/trainer/JennyHo/Visual_final/mmdetection/checkpoints/faster_rcnn_x101_32x4d_fpn_1x_coco_20200203-cff10310.pth'
