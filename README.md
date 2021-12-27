@@ -24,7 +24,7 @@ classifier(Vit_large_patch16_384): run 「python ViT/main.py」
 ```
 
 ## Reproduce performance
-To evaluate my model, run:
+To reproduce performance:
 
 ```eval
 python inference.py
