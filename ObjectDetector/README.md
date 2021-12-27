@@ -2,17 +2,65 @@
 
 ### Description
 
-The task is to create bounding box for fish training data.
+Object detector is used to generate bounding box for testing images in the testing phase.
 
-The ObjectDetector folder includeing two folders:
-+ ```src``` : python file for data preparation
-+ ```my_configs``` : config files for training in mmdetection
-  + faster_rcnn with backbone resnet101 and resnext101 is used.
-  
-> To-do : faster_rcnn and yolo trained in two-class (fish/no fish) dataset. 
+The ObjectDetector folder include one folder:
++ ```src```  
+  + ```make_json_2classes.py``` : make train.json and test.json
+  + ```my-faster_rcnn-rxt101-configs_checkpoints_2classes.py``` : config file of faster rcnn used in the project 
 
-### Model Link
+## Requirements
 
-https://drive.google.com/drive/folders/1BjOPxUSnY7Uc4GeUJP8sAXgzxnUnRKJL?usp=sharing
- 
+In training and testing object detector, mmdetection was used. Please refer to [mmdetection](https://github.com/open-mmlab/mmdetection.git) for installation.
 
+To install other requirements:
+
+```setup
+pip install -r requirements.txt
+```
+## Dataset Preparation
+#### Prepare annotations
++ Run ```src/make_json_2classes.py``` to make train.json and test.json
+
+#### Project structure
+```
+mmdetection 
+└─── coco
+│    │
+│    └─── annotations
+│    │    │  train.json
+│    │    |  test.json
+│    │
+│    └─── images
+│         │  1.png
+│         |  2.png
+│         |  ...
+│
+└─── my_configs
+      │
+      └─── my-faster_rcnn-rxt101-configs_checkpoints_2classes.py
+└─── configs
+└─── ...
+```
+
+
+## Training
+
+To train the model used in this project, run this command:
+
+```train
+cd mmdetection
+python tools/train.py my-configs/my-faster_rcnn-rxt101-configs_checkpoints_2classes.py
+```
+
+## Test
+
+To test the trained model, run:
+
+```test
+python tools/test.py my-configs/my-faster_rcnn-rxt101-configs_checkpoints_2classes.py  ${CHECKPOINT_FILE} --format-only --options jsonfile_prefix=${JSONFILE_PREFIX}
+```
+
+## Model Weight Link
+
+https://drive.google.com/drive/folders/15G6Dwk4HJVyCQWI4RThBOrx71EkfuQ8V
