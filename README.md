@@ -41,7 +41,7 @@ ${ROOT}
 3. run 「cd ViT」
 4. run 「python test.py」
 5. run 「python test_bbox.py」
-6. run 「ensemble.py」
+6. run 「python ensemble.py」
 7. get the final result 「ensemble.csv」 under the folder ViT
 ```
 ## Model Weight and annotation Link
