@@ -20,7 +20,7 @@ To train the model, see following:
 
 ```
 detector(faster-RCNN): see ObjectDetector/README.md
-classifier(Vit_large_patch16_384): run 「python ViT/main.py」
+classifier(Vit_large_patch16_384): see ViT/README.md
 ```
 
 ## Reproduce performance
