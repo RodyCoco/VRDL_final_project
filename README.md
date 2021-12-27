@@ -18,7 +18,7 @@ RTX A5000 *4
 
 To train the model, see following:
 
-```train
+```
 detector(faster-RCNN): see ObjectDetector/README.md
 classifier: run 「python ViT/main.py」
 ```
@@ -29,5 +29,5 @@ To evaluate my model, run:
 ```eval
 python inference.py
 ```
-## Model Weight Link
-https://drive.google.com/drive/folders/1qMi1xaPWkpJr7vNadyh4fJ_niqN22O92?usp=sharing
+## Model Weight and bbox images Link
+https://drive.google.com/drive/folders/15G6Dwk4HJVyCQWI4RThBOrx71EkfuQ8V?usp=sharing
