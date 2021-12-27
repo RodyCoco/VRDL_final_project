@@ -46,14 +46,14 @@ mmdetection
 
 ## Training
 
-To train the model used in this project, run this command:
+To train the model, run this command:
 
 ```train
 cd mmdetection
 python tools/train.py my-configs/my-faster_rcnn-rxt101-configs_checkpoints_2classes.py
 ```
 
-## Test
+## Testing
 
 To test the trained model, run:
 
